@@ -92,5 +92,5 @@ protected void moveItem(int start,int end){
 
 
 
-  [1]: https://github/xiezilailai
-  [2]: http://weibo/xiezilailai
+  [1]: https://github.com/xiezilailai
+  [2]: http://weibo.com/xiezilailai
