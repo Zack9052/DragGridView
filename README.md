@@ -3,7 +3,7 @@ DragGridView for Android（Android可拖动GridView，在ScrollView中也可以�
 
 welcome to star me or follow me on Github 
 
-**Github:**[xiezilailai的github][1]
+**Github: **[xiezilailai的github][1]
 
 You alse can follow my weibo and communicate with me!
 
