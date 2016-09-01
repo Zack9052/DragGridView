@@ -43,52 +43,8 @@ public class MyNewAdapter extends DragBaseAdapter<String> {
 }
 
 ```
-正如你看到的一样，你只需要将你将layout和之中的view传进去，然后在setViewValue中指定特定position下各个view如何绑定数据即可。但是这个抽象类只是能普遍通用一些不是很复杂的adapter，如果你的adapter很复杂或者是有一些特殊的操作再或者你不想继承自BaseAdapter，你完全可以自己重新写一个Adapter，**但是你必须在你的adapter中实现moveItem方法**，这个并不复杂，你只需要将下面的代码中按照你的需要改一下就行（demo中的抽象adapter的是泛型）
-```
-protected void moveItem(int start,int end){
-        List<T>tmpList=new ArrayList<>();
-        if(start<end){
-            tmpList.clear();
-            for(T s:list)tmpList.add(s);
-            T endMirror=tmpList.get(end);
+正如你看到的一样，你只需要将你将layout和之中的view传进去，然后在setViewValue中指定特定position下各个view如何绑定数据即可。但是这个抽象类只是能普遍通用一些不是很复杂的adapter，如果你的adapter很复杂或者是有一些特殊的操作再或者你不想继承自BaseAdapter，你完全可以自己重新写一个Adapter，**但是你必须在你的adapter中实现moveItem方法**，这个并不复杂，你只需要将DragBaseAdapter中的代码按照你的需要改一下就行（DragBaseAdapter中用的是泛型）
 
-            tmpList.remove(end);
-            tmpList.add(end,getItem(start));
-
-            for(int i=start+1;i<=end;i++){
-                tmpList.remove(i-1);
-                if(i!=end){
-                    tmpList.add(i-1,getItem(i));
-                }else {
-                    tmpList.add(i-1,endMirror);
-                }
-
-            }
-
-        }else{
-            tmpList.clear();
-            for(T s:list)tmpList.add(s);
-            T startMirror=tmpList.get(end);
-            tmpList.remove(end);
-            tmpList.add(end,getItem(start));
-
-            for(int i=start-1;i>=end;i--){
-                tmpList.remove(i+1);
-                if(i!=start){
-                    tmpList.add(i+1,getItem(i));
-                }else {
-                    tmpList.add(i+1,startMirror);
-                }
-            }
-
-        }
-        list.clear();
-        list.addAll(tmpList);
-
-
-        notifyDataSetChanged();
-    }
-```
 
 
 
